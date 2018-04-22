@@ -7,8 +7,8 @@ public class HelloBot extends WeChatBot {
     @Bind(msgType = MsgType.TEXT)
     public void handleText(WeChatMessage message) {
         if (StringUtils.isNotEmpty(message.getName())) {
-            log.info("���յ� [{}] ����Ϣ: {}", message.getName(), message.getText());
-            this.sendMsg(message.getFromUserName(), "�Զ��ظ�: " + message.getText());
+            log.info("½ÓÊÕµ½ [{}] µÄÏûÏ¢: {}", message.getName(), message.getText());
+            this.sendMsg(message.getFromUserName(), "×Ô¶¯»Ø¸´: " + message.getText());
         }
     }
 
@@ -33,3 +33,13 @@ public class HelloBot extends WeChatBot {
         </exclusion>
     </exclusions>
 </dependency>
+
+//监听群聊
+
+@Bind(accountType = AccountType.TYPE_GROUP)
+public void groupMessage(WeChatMessage message) {
+    if(StringUtils.isNotEmpty(message.getName())){
+        log.info("接收到群 [{}] 的消息: {}", message.getName(), message.getText());
+        this.sendMsg(message.getFromUserName(), "自动回复: " + message.getText());
+    }
+}
