@@ -43,3 +43,47 @@ public void groupMessage(WeChatMessage message) {
         this.sendMsg(message.getFromUserName(), "自动回复: " + message.getText());
     }
 }
+
+//页面设计
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width= "wrap_content"
+        android:layout_height="wrap_content"
+        android:text="客服机器人"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="380dp"
+        android:layout_height="430dp"
+        android:textSize="24sp"
+        android:layout_below="@+id/tv1"
+        />
+
+    <EditText
+        android:id="@+id/ed1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textSize="24sp"
+        android:layout_below="@+id/tv2"
+    />
+
+<Button
+    android:id="@+id/bt1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="发送"
+    android:layout_below="@+id/tv2"
+    android:layout_toRightOf="@+id/ed1"
+    />
+
+
+</RelativeLayout>
